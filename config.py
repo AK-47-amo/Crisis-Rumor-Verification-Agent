@@ -52,6 +52,6 @@ CRISIS_KEYWORDS = [
 ]
 
 #UI constants 
-APP_TITLE = "🛡️ Crisis Rumor Verification Agent"
+APP_TITLE = "Crisis Rumor Verification Agent"
 APP_SUBTITLE = "AI-powered disaster message analysis & verification"
-APP_ICON = "🛡️"
+APP_ICON = ""
