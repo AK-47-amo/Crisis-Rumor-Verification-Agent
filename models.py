@@ -1,10 +1,3 @@
-"""
-Shared data models for the Crisis Rumor Verification Agent.
-
-All modules communicate through these dataclasses to ensure
-type safety and clean interfaces.
-"""
-
 from dataclasses import dataclass, field
 from typing import Optional
 

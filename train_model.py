@@ -1,17 +1,3 @@
-"""
-Model training script for the Crisis Rumor Verification Agent.
-
-Trains a TF-IDF + Logistic Regression pipeline on the
-Kaggle Disaster Tweets dataset and saves the model to disk.
-
-Usage:
-    python train_model.py
-
-Prerequisites:
-    Place the Kaggle 'train.csv' file in the data/ directory.
-    Download from: https://www.kaggle.com/c/nlp-getting-started/data
-"""
-
 import logging
 import sys
 
@@ -35,12 +21,6 @@ logger = logging.getLogger(__name__)
 
 
 def load_data() -> pd.DataFrame:
-    """
-    Load and validate the training dataset.
-
-    Returns:
-        DataFrame with 'text' and 'target' columns.
-    """
     if not TRAINING_DATA_PATH.exists():
         logger.error(
             "Training data not found at: %s\n"
@@ -67,24 +47,12 @@ def load_data() -> pd.DataFrame:
 
 
 def preprocess(df: pd.DataFrame) -> pd.DataFrame:
-    """
-    Clean the text column for ML processing.
-
-    Args:
-        df: Raw DataFrame.
-
-    Returns:
-        DataFrame with an added 'clean_text' column.
-    """
     df = df.copy()
     df["clean_text"] = df["text"].apply(clean_text)
     return df
 
 
 def train() -> None:
-    """
-    Full training pipeline: load → preprocess → train → evaluate → save.
-    """
     logger.info("=" * 60)
     logger.info("  Crisis Rumor Verification — Model Training")
     logger.info("=" * 60)

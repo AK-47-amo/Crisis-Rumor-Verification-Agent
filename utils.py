@@ -1,32 +1,8 @@
-"""
-Shared utility functions for the Crisis Rumor Verification Agent.
-
-Provides text preprocessing, cleaning, and helper functions
-used across multiple modules.
-"""
-
 import re
 import string
 
 
 def clean_text(text: str) -> str:
-    """
-    Clean and normalize text for ML processing.
-
-    Steps:
-        1. Lowercase
-        2. Remove URLs
-        3. Remove mentions (@user)
-        4. Remove hashtag symbols (keep the word)
-        5. Remove punctuation
-        6. Collapse whitespace
-
-    Args:
-        text: Raw input text.
-
-    Returns:
-        Cleaned text string.
-    """
     if not text:
         return ""
 
@@ -51,59 +27,21 @@ def clean_text(text: str) -> str:
 
 
 def count_crisis_keywords(text: str, keywords: list[str]) -> int:
-    """
-    Count how many crisis keywords appear in the text.
-
-    Args:
-        text: Input text (should be lowercased).
-        keywords: List of crisis-related keywords.
-
-    Returns:
-        Count of matching keywords.
-    """
     text_lower = text.lower()
     return sum(1 for kw in keywords if kw in text_lower)
 
 
 def truncate_text(text: str, max_length: int = 500) -> str:
-    """
-    Truncate text to a maximum length, appending '...' if truncated.
-
-    Args:
-        text: Input text.
-        max_length: Maximum character length.
-
-    Returns:
-        Truncated text.
-    """
     if len(text) <= max_length:
         return text
     return text[:max_length].rsplit(" ", 1)[0] + "..."
 
 
 def extract_urls(text: str) -> list[str]:
-    """
-    Extract all URLs from text.
-
-    Args:
-        text: Input text.
-
-    Returns:
-        List of URL strings found.
-    """
     return re.findall(r"https?://\S+", text)
 
 
 def has_credible_source_hint(text: str) -> bool:
-    """
-    Heuristic check for mentions of credible sources.
-
-    Args:
-        text: Input text.
-
-    Returns:
-        True if a known credible source pattern is found.
-    """
     credible_patterns = [
         r"according to",
         r"reported by",

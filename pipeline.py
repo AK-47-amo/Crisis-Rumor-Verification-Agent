@@ -1,12 +1,3 @@
-"""
-Pipeline orchestrator for the Crisis Rumor Verification Agent.
-
-Central coordinator that wires all analysis modules together:
-    LLM Analyzer → ML Classifier → Risk Scorer → Recommendation Engine
-
-Returns a unified VerificationReport.
-"""
-
 import logging
 import time
 
@@ -31,21 +22,6 @@ def _get_classifier() -> DisasterClassifier:
 
 
 def run_pipeline(message: str) -> VerificationReport:
-    """
-    Run the full verification pipeline on a user message.
-
-    Steps:
-        1. LLM analysis → extract structured features
-        2. ML classification → predict real crisis vs non-crisis
-        3. Risk scoring → compute 0–100 risk score
-        4. Recommendation → generate safe guidance
-
-    Args:
-        message: The disaster-related message from the user.
-
-    Returns:
-        VerificationReport containing all results.
-    """
     start_time = time.time()
 
     logger.info("Pipeline started for message: %s...", message[:80])

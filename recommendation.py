@@ -1,27 +1,7 @@
-"""
-Safe recommendation generator.
-
-Produces deterministic, human-readable guidance based on
-the risk assessment. Rules-based (not LLM) to ensure
-consistent and safe output.
-"""
-
 from models import Recommendation, RiskAssessment
 
 
 def generate_recommendation(risk: RiskAssessment) -> Recommendation:
-    """
-    Generate a safe recommendation based on the risk level.
-
-    Recommendations are deterministic and always include a
-    disclaimer urging users to verify with official sources.
-
-    Args:
-        risk: The computed RiskAssessment.
-
-    Returns:
-        Recommendation with verdict, emoji, and guidance message.
-    """
     if risk.level == "Low":
         return Recommendation(
             verdict="Likely Safe",

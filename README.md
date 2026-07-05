@@ -26,41 +26,6 @@ app.py  →  pipeline.py  →  ┌─ llm_analyzer.py
 All modules communicate via typed dataclasses defined in `models.py`.
 
 ---
-
-## 🚀 Quick Start
-
-### 1. Clone & Install
-
-```bash
-cd "IIT Project2"
-pip install -r requirements.txt
-```
-
-### 2. Configure Environment
-
-```bash
-cp .env.example .env
-# Edit .env and add your Gemini API key
-```
-
-### 3. Download Training Data
-
-Download `train.csv` from the [Kaggle Disaster Tweets](https://www.kaggle.com/c/nlp-getting-started/data) competition and place it in the `data/` directory.
-
-### 4. Train the ML Model
-
-```bash
-python train_model.py
-```
-
-### 5. Run the App
-
-```bash
-streamlit run app.py
-```
-
----
-
 ## 📁 Project Structure
 
 | File | Purpose |
@@ -95,7 +60,3 @@ The TF-IDF + Logistic Regression model typically achieves:
 on the Kaggle Disaster Tweets test split.
 
 ---
-
-## ⚠️ Disclaimer
-
-This is an automated assessment tool for educational purposes. Always verify crisis information with official sources before sharing or acting on it.

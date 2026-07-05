@@ -1,11 +1,3 @@
-"""
-Rule-based risk scoring engine.
-
-Computes a risk score (0–100) by combining signals from
-the ML classifier, LLM analysis, and keyword heuristics.
-Maps the score to a risk level: Low | Medium | High | Critical.
-"""
-
 from config import CRISIS_KEYWORDS, RISK_THRESHOLDS, RISK_WEIGHTS
 from models import LLMAnalysis, MLPrediction, RiskAssessment
 from utils import count_crisis_keywords
@@ -16,25 +8,6 @@ def calculate_risk(
     llm_analysis: LLMAnalysis,
     ml_prediction: MLPrediction,
 ) -> RiskAssessment:
-    """
-    Calculate a composite risk score from all available signals.
-
-    Scoring breakdown (max 100 points):
-        - ML confidence (if crisis predicted): 0–30
-        - Urgency level from LLM:              0–25
-        - Source absent penalty:                0–10
-        - Evidence absent penalty:              0–10
-        - Crisis keyword density:               0–15
-        - Message length heuristic:             0–10
-
-    Args:
-        message: Original message text.
-        llm_analysis: Features extracted by the LLM analyzer.
-        ml_prediction: Prediction from the ML classifier.
-
-    Returns:
-        RiskAssessment with score, level, and breakdown.
-    """
     breakdown = {}
     total = 0
 
