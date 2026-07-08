@@ -16,8 +16,6 @@ from utils import count_crisis_keywords, has_credible_source_hint
 
 logger = logging.getLogger(__name__)
 
-# ── Gemini prompt ───────────────────────────────────────────────────
-
 EXTRACTION_PROMPT = """\
 You are a crisis information analyst. Analyze the following message and extract structured information.
 

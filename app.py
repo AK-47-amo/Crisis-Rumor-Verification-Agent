@@ -163,7 +163,7 @@ with st.sidebar:
     st.markdown("### 🧪 Try These Examples")
     examples = [
         "BREAKING: Massive 7.8 earthquake hits central Turkey. Over 2,000 feared dead. FEMA deploying rescue teams.",
-        "Just saw an amazing sunset over the beach. The sky looked like it was on fire! 🌅",
+        "Just saw an amazing sunset over the beach. The sky looked like it was bright blue!",
         "There is a huge wildfire spreading near our town but I haven't seen any news about it yet, is anyone else seeing this?",
         "According to Reuters, flash floods in southern Germany have displaced 10,000 residents. Red Cross shelters are open.",
         "The stock market crashed today, complete disaster for my portfolio 📉",
